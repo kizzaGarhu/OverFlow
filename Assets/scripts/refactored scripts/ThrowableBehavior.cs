@@ -7,7 +7,7 @@ public class ThrowableBehavior : MonoBehaviour {
 	//public ObjectType type;
 	public ThrowableType type;
 	
-	public float flySpeed = 0.08f; //How fast objects fly after drag
+	public float flySpeed = 0.25f; //How fast objects fly after drag
 	
 	
 	private float _posX = 80.0f, _negX = -80.0f, _posY = 50.0f, _negY = -50.0f;
