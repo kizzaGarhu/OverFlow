@@ -10,7 +10,8 @@ public class MainMenuBehavior : IWorldBehavior {
 		NewGameState,
 		SettingsState,
 		QuitState,
-		QuitConfirmState
+		QuitConfirmState,
+		CreditsState
 		
 	}//GameState
 	
@@ -24,6 +25,7 @@ public class MainMenuBehavior : IWorldBehavior {
 	private GameObject _newGameState;
 	private GameObject _settingsState;
 	private GameObject _quitState;
+	private GameObject _creditsState;
 	#endregion
 	
 	public MainMenuBehavior(){
@@ -37,9 +39,10 @@ public class MainMenuBehavior : IWorldBehavior {
 		_newGameState = GameObject.Find("NewGameState");
 		//_settingsState = GameObject.Find("SettingsState");
 		_quitState = GameObject.Find("QuitConfirmState");
-		
+		_creditsState = GameObject.Find ("CreditsState");
 		//set visibility
 		_newGameState.transform.position = _notVisible;
+		_creditsState.transform.position = _notVisible;
 		//_settingsState.transform.position = _notVisible;
 		_quitState.transform.position = _notVisible;
 	}
@@ -56,19 +59,21 @@ public class MainMenuBehavior : IWorldBehavior {
 				_newGameState.transform.position = _visible;
 				_currentState = GameState.NewGameState;
 				break;
-			
 			case GameState.NewGameState:
 				//Back Label in New Game State
 				_newGameState.transform.position = _notVisible;
 				_mainState.transform.position = _visible;
 				_currentState = GameState.MainState;
 				break;
-			
 			case GameState.SettingsState:
 				break;
-				
 			case GameState.QuitConfirmState:
 				Application.Quit();
+				break;
+			case GameState.CreditsState:
+				_creditsState.transform.position = _notVisible;
+				_mainState.transform.position = _visible;
+				_currentState = GameState.MainState;
 				break;
 			}
 			break;
@@ -77,6 +82,7 @@ public class MainMenuBehavior : IWorldBehavior {
 			case GameState.QuitConfirmState:
 				_mainState.transform.position = _visible;
 				_quitState.transform.position = _notVisible;
+				_currentState = GameState.MainState;
 				break;
 			}
 			break;
@@ -85,6 +91,16 @@ public class MainMenuBehavior : IWorldBehavior {
 			case GameState.MainState:
 				_mainState.transform.position = _notVisible;
 				_quitState.transform.position = _visible;
+				_currentState = GameState.QuitConfirmState;
+				break;
+			}
+			break;
+		case ThrowableType.D:
+			switch(_currentState){
+			case GameState.MainState:
+				_mainState.transform.position = _notVisible;
+				_creditsState.transform.position = _visible;
+				_currentState = GameState.CreditsState;
 				break;
 			}
 			
