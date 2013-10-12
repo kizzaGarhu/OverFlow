@@ -9,11 +9,9 @@ public class BinBehavior : MonoBehaviour {
 	public ThrowableType type;
 	
 	void OnTriggerEnter(Collider other){
+				
+		ThrowableType[] types = {type,other.gameObject.GetComponent<ThrowableBehavior>().type};
 		
-		if(other.gameObject.GetComponent<ThrowableBehavior>().type == this.type){
-			Debug.Log("Answer");	
-		}
-		
-		gameWorld.SendMessage("React", type);//other.gameObject.GetComponent<FallingObjectBehaviour>().type);
+		gameWorld.SendMessage("React", types);//other.gameObject.GetComponent<FallingObjectBehaviour>().type);
 	}//OnTriggerEnter
 }

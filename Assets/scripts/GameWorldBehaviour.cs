@@ -21,8 +21,8 @@ public class GameWorldBehaviour : MonoBehaviour {
 		}
 	}
 	
-	public void React(ThrowableType type){
-		worldBehaviour.React(type);
+	public void React(ThrowableType[] types){
+		worldBehaviour.React(types);
 	}
 	
 	//#################
