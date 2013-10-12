@@ -36,12 +36,12 @@ public class MainMenuBehavior : IWorldBehavior {
 		_mainState = GameObject.Find("MainState");
 		_newGameState = GameObject.Find("NewGameState");
 		//_settingsState = GameObject.Find("SettingsState");
-		//_quitState = GameObject.Find("QuitState");
+		_quitState = GameObject.Find("QuitConfirmState");
 		
 		//set visibility
 		_newGameState.transform.position = _notVisible;
 		//_settingsState.transform.position = _notVisible;
-		//_quitState.transform.position = _notVisible;
+		_quitState.transform.position = _notVisible;
 	}
 	
 	public void React(ThrowableType type){
@@ -54,6 +54,9 @@ public class MainMenuBehavior : IWorldBehavior {
 				_newGameState.transform.position = _visible;
 				_currentState = GameState.NewGameState;
 				break;
+			case GameState.QuitState:
+				Application.Quit();
+				break;
 			
 			case GameState.NewGameState:
 				//Back Label in New Game State
@@ -63,10 +66,6 @@ public class MainMenuBehavior : IWorldBehavior {
 				break;
 			
 			case GameState.SettingsState:
-				break;
-			
-			case GameState.QuitState:
-				
 				break;
 			}
 			
@@ -91,7 +90,22 @@ public class MainMenuBehavior : IWorldBehavior {
 			*/
 			break;
 		case ThrowableType.B:
+			switch(_currentState){
+			case GameState.QuitState:
+				_mainState.transform.position = _visible;
+				_quitState.transform.position = _notVisible;
+				break;
+			}
 			break;
+		case ThrowableType.C:
+			switch(_currentState){
+			case GameState.MainState:
+				_mainState.transform.position = _notVisible;
+				_quitState.transform.position = _visible;
+				break;
+			}
+			
+		break;
 			
 		}//switch
 	}//React
