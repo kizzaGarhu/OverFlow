@@ -8,7 +8,8 @@ public class GameWorldBehaviour : MonoBehaviour {
 	public WorldBehavior instantiateWorldBehavior;
 	
 	public enum WorldBehavior{
-		MainMenuBehavior
+		MainMenuBehavior,
+		RecycleGameBehavior
 	}
 	
 	// Use this for initialization

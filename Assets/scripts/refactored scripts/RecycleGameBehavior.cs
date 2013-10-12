@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class RecycleGameBehavior : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+public class RecycleGameBehavior : IWorldBehavior {
 	
-	}
+	private GameObject _scoreObject;
+	private int _score;
 	
-	// Update is called once per frame
-	void Update () {
-	
+	public void React(ThrowableType type){
+		
 	}
 }
