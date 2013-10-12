@@ -7,7 +7,7 @@ public class RecycleGameBehavior : IWorldBehavior {
 	private GameObject _scoreObject;
 	private int _score;
 	
-	public void React(ThrowableType type){
+	public void React(ThrowableType[] types){
 		
 	}
 }

@@ -44,7 +44,9 @@ public class MainMenuBehavior : IWorldBehavior {
 		_quitState.transform.position = _notVisible;
 	}
 	
-	public void React(ThrowableType type){
+	public void React(ThrowableType[] types){
+		var type = types[0];
+	
 		switch(type){
 		case ThrowableType.A:
 			switch(_currentState){
@@ -53,9 +55,6 @@ public class MainMenuBehavior : IWorldBehavior {
 				_mainState.transform.position = _notVisible;
 				_newGameState.transform.position = _visible;
 				_currentState = GameState.NewGameState;
-				break;
-			case GameState.QuitState:
-				Application.Quit();
 				break;
 			
 			case GameState.NewGameState:
@@ -67,31 +66,15 @@ public class MainMenuBehavior : IWorldBehavior {
 			
 			case GameState.SettingsState:
 				break;
-			}
-			
-			/*
-			if(_currentState == GameState.MainState){
-				_mainState.transform.position = _notVisible;
-				_newGameState.transform.position = _visible;
-				Debug.Log(_currentState);
-				Debug.Log(_mainState.transform.position);
-				_currentState = GameState.NewGameState;
-				//CurrentState = GameState.NewGameState;
-				Debug.Log(_currentState);
-			}else if(_currentState == GameState.NewGameState){
-				_newGameState.transform.position = _notVisible;
-				_mainState.transform.position = _visible;
-				_currentState = GameState.MainState;
-			}else if(_currentState == GameState.SettingsState){
 				
-			}else if(_currentState == GameState.QuitState){
-				
+			case GameState.QuitConfirmState:
+				Application.Quit();
+				break;
 			}
-			*/
 			break;
 		case ThrowableType.B:
 			switch(_currentState){
-			case GameState.QuitState:
+			case GameState.QuitConfirmState:
 				_mainState.transform.position = _visible;
 				_quitState.transform.position = _notVisible;
 				break;
