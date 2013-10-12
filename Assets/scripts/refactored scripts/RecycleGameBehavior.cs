@@ -8,6 +8,6 @@ public class RecycleGameBehavior : IWorldBehavior {
 	private int _score;
 	
 	public void React(ThrowableType type){
-			
+		
 	}
 }

@@ -18,9 +18,6 @@ public class GameWorldBehaviour : MonoBehaviour {
 		case WorldBehavior.MainMenuBehavior:
 			worldBehaviour = new MainMenuBehavior();
 			break;
-		case WorldBehavior.RecycleGameBehavior:
-			worldBehaviour = new RecycleGameBehavior();
-			break;
 		}
 	}
 	
