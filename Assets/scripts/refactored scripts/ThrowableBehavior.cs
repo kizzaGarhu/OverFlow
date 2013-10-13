@@ -13,6 +13,9 @@ public class ThrowableBehavior : MonoBehaviour {
 	private float _posX = 80.0f, _negX = -80.0f, _posY = 50.0f, _negY = -50.0f;
 	private float _positionX = 0.0f, _positionY = 0.0f;
 	
+	public float startX = 0.0f, startY = 0.0f, startZ = 0.0f;
+    private Vector3 _startPosition;
+	
 	//For calculating object's flying direction 
 	private Vector3 _flyDirection = Vector3.zero; //general fly direction applied to object's position on each update
 	private Vector3 _startingPos; //object's starting position before drag. 
@@ -20,7 +23,8 @@ public class ThrowableBehavior : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-	
+		_startPosition = new Vector3(startX,startY,startZ);
+		gameObject.transform.position = _startPosition;
 	}
 	
 	// Update is called once per frame
@@ -41,13 +45,16 @@ public class ThrowableBehavior : MonoBehaviour {
 			
 			Debug.Log("Respawning...");
 			_flyDirection = Vector3.zero;
-			gameObject.transform.position = Vector3.zero;
+			
+			gameObject.rigidbody.velocity = Vector3.zero;
+			gameObject.transform.position = _startPosition;
 		}//if
 		
 		if(_positionY >= _posY ||  _positionY <= _negY){
 			Debug.Log("Respawning...");
 			_flyDirection = Vector3.zero;
-			gameObject.transform.position = Vector3.zero;
+			gameObject.rigidbody.velocity = Vector3.zero;
+			gameObject.transform.position = _startPosition;
 		}//if
 		
 	}//CheckPosition

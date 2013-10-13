@@ -26,6 +26,7 @@ public class MainMenuBehavior : IWorldBehavior {
 	private GameObject _settingsState;
 	private GameObject _quitState;
 	private GameObject _creditsState;
+	private GameObject _names;
 	#endregion
 	
 	public MainMenuBehavior(){
@@ -40,7 +41,9 @@ public class MainMenuBehavior : IWorldBehavior {
 		//_settingsState = GameObject.Find("SettingsState");
 		_quitState = GameObject.Find("QuitConfirmState");
 		_creditsState = GameObject.Find ("CreditsState");
+		_names = GameObject.Find("Names");
 		//set visibility
+		_names.SetActive(false);
 		_newGameState.transform.position = _notVisible;
 		_creditsState.transform.position = _notVisible;
 		//_settingsState.transform.position = _notVisible;
@@ -73,6 +76,7 @@ public class MainMenuBehavior : IWorldBehavior {
 			case GameState.CreditsState:
 				_creditsState.transform.position = _notVisible;
 				_mainState.transform.position = _visible;
+				_names.SetActive(false);
 				_currentState = GameState.MainState;
 				break;
 			}
@@ -100,6 +104,7 @@ public class MainMenuBehavior : IWorldBehavior {
 			case GameState.MainState:
 				_mainState.transform.position = _notVisible;
 				_creditsState.transform.position = _visible;
+				_names.SetActive(true);
 				_currentState = GameState.CreditsState;
 				break;
 			}
