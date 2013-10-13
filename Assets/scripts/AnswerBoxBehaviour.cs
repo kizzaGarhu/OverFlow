@@ -13,6 +13,8 @@ public class AnswerBoxBehaviour : MonoBehaviour {
 			Debug.Log("Answer");	
 		}
 		
+		audio.Play();
+		
 		gameWorld.SendMessage("printHello", type);//other.gameObject.GetComponent<FallingObjectBehaviour>().type);
 	}//OnTriggerEnter
 
