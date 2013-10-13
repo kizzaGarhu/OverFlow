@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class RecycleGameBehavior : IWorldBehavior {
 	
+
+	
 	private GameObject _scoreObject;
 	private int _score = 0;
 	private int _health = 6;
@@ -27,10 +29,16 @@ public class RecycleGameBehavior : IWorldBehavior {
 		}//if
 	}//CheckConditions
 	
-	private void instantiateTrash(){
+	private void InstantiateTrash(){
+		/*
 		for(int i = 0; i < _numberOfTrash; i++){
-			int randomPrefab = Random.Range(0,5);
+			int randomPrefab = Random.Range(0,3);
+			float x = Random.Range(-5, 5);
+			float y = Random.Range(-5, 5);
 			
-		}
+
+			
+		}//
+		*/
 	}//instantiateTrash
 }
