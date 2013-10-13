@@ -18,7 +18,11 @@ public class GameWorldBehaviour : MonoBehaviour {
 		case WorldBehavior.MainMenuBehavior:
 			worldBehaviour = new MainMenuBehavior();
 			break;
+		case WorldBehavior.RecycleGameBehavior:
+			worldBehaviour = new RecycleGameBehavior();
+			break;
 		}
+		worldBehaviour.Initialize();
 	}
 	
 	public void React(ThrowableType[] types){

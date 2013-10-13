@@ -29,6 +29,8 @@ public class MainMenuBehavior : IWorldBehavior {
 	private GameObject _names;
 	#endregion
 	
+	public void Initialize(){}
+	
 	public MainMenuBehavior(){
 		findGameObjects();
 		
@@ -87,6 +89,9 @@ public class MainMenuBehavior : IWorldBehavior {
 				_mainState.transform.position = _visible;
 				_quitState.transform.position = _notVisible;
 				_currentState = GameState.MainState;
+				break;
+			case GameState.NewGameState:
+				Application.LoadLevel("02_recycle_game");
 				break;
 			}
 			break;
